@@ -1,3 +1,9 @@
+while True:
+    tryb=input("Wybierz tryb - wpisz 'o' (odszyfrowanie) albo 's' (szyfrowanie): ")
+    if tryb=='o' or tryb=='s':
+        break
+    else:
+        print("Nieznany tryb! Wpisz 's' lub 'o'")
 
 while True:
     kod_str=input("Podaj o ile chcesz przesunac znaki tekstu: ")
@@ -6,10 +12,16 @@ while True:
         break
     else:
         print("Podaj cyfre!")
-haslo=input("Podaj tekst, ktory chcesz zaszyfrowac: ")
-nowe_haslo=""
-for i in range(len(haslo)):
-    znak=haslo[i]
-    zaszyfrowany_znak=chr(ord(znak)+kod)
-    nowe_haslo+=zaszyfrowany_znak
-print(f"Zaszyfrowane hasło: {nowe_haslo}")
+
+
+tekst=input("Podaj tekst: ")
+wynik=""
+for i in range(len(tekst)):
+    znak=tekst[i]
+    if tryb=='o':
+        nowy_kod_ASCII=ord(znak)-kod
+    else:
+        nowy_kod_ASCII=ord(znak)+kod
+    zaszyfrowany_znak=chr(nowy_kod_ASCII)
+    wynik+=zaszyfrowany_znak
+print(f"Wynik: {wynik}")
